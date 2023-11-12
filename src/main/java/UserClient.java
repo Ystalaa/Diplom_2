@@ -8,7 +8,6 @@ public class UserClient extends Specification {
         return given()
                 .spec(getBaseSpec())
                 .header("Authorization", accessToken)
-                .log().all()
                 .get(EndPoints.USER_PATH + "user")
                 .then()
                 .log().all();
@@ -19,7 +18,6 @@ public class UserClient extends Specification {
         return given()
                 .spec(getBaseSpec())
                 .body(user)
-                .log().all()
                 .post(EndPoints.USER_PATH + "register")
                 .then()
                 .log().all();
@@ -31,7 +29,6 @@ public class UserClient extends Specification {
                 .spec(getBaseSpec())
                 .auth().oauth2(accessToken)
                 .body(user)
-                .log().all()
                 .post(EndPoints.USER_PATH + "login")
                 .then()
                 .log().all();
@@ -42,7 +39,6 @@ public class UserClient extends Specification {
         return given()
                 .spec(getBaseSpec())
                 .body(refreshToken)
-                .log().all()
                 .post(EndPoints.USER_PATH + "logout")
                 .then()
                 .log().all();
@@ -53,7 +49,6 @@ public class UserClient extends Specification {
         return given()
                 .spec(getBaseSpec())
                 .auth().oauth2(accessToken)
-                .log().all()
                 .delete(EndPoints.USER_PATH + "user")
                 .then()
                 .log().all();
@@ -65,7 +60,6 @@ public class UserClient extends Specification {
                 .spec(getBaseSpec())
                 .header("Authorization", accessToken)
                 .body(user)
-                .log().all()
                 .patch(EndPoints.USER_PATH + "user")
                 .then()
                 .log().all();
@@ -76,7 +70,6 @@ public class UserClient extends Specification {
         return given()
                 .spec(getBaseSpec())
                 .body(user)
-                .log().all()
                 .patch(EndPoints.USER_PATH + "user")
                 .then()
                 .log().all();
